@@ -1,0 +1,6 @@
+# Remove .htaccess for new structure
+# with sepearte CI app for api.
+
+#RewriteEngine on
+#RewriteCond $1 !^(index\.php|images|js|css|fonts|robots\.txt)
+#RewriteRule ^(.*)$ ./index.php/$1 [L]

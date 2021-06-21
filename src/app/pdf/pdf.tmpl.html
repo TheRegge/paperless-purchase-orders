@@ -1,0 +1,12 @@
+<topbar ng-controller="TopbarController"></topbar>
+<div class="container" ng-controller="PdfController as pdf">
+	<div class="row">
+		<div class="col-sm-12 col-md-6 col-md-offset-3">
+			<div class="page-header">
+				<h2>Purchase Order<br><small>PDF download</small></h2>
+			</div>
+			<p>{{pdf.downloadMsg}}</p>
+			<a href="{{pdf.pdfUrl}}" target="_blank" ng-hide="pdf.downloadDisabled" class="btn btn-lg btn-success" ><i class="fa fa-download"></i> Download PDF. </a>
+		</div>
+	</div>
+</div> 

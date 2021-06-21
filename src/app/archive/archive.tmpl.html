@@ -1,0 +1,70 @@
+<topbar ng-controller="TopbarController"></topbar>
+<div class="container" ng-controller="ArchiveController as archive">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h2>Purchase Orders<br><small>Archive</small></h2>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div id="no-more-tables">
+			<table st-table="displayedPos" st-safe-src="pos" class="table table-striped">
+				<thead>
+					<tr>
+						<th colspan="3"><input st-search ng-model="searchTerm" class="form-control" placeholder="Search POs &hellip;" type="text"/></th>
+						<th colspan="9">
+							<div class="input-group">
+							<!--	<p>
+								Search by:
+									<input type="checkbox" name="searchby-name" id="searchby-name">
+									<label for="searchby-name">Name</label>
+
+									<input type="checkbox" name="searchby-department" id="searchby-department">
+									<label for="searchby-department">Department</label>
+								</p> -->
+							</div>
+						</th>
+					</tr>
+					<tr class="no-more">
+						<th st-sort="poNumber">PO#</th>
+						<th st-sort="date">Date</th>
+						<th st-sort="department">Department</th>
+						<th st-sort="shortVendor">Vendor</th>
+						<th st-sort="shipToLocation.label">Ship To</th>
+						<th st-sort="teacher">Teacher</th>
+						<th st-sort="divDirector">Div. Director</th>
+						<th>Remarks</th>
+						<th st-sort="totalAmount">Total</th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="po in displayedPos">
+						<td data-title="PO#">{{po.poNumber}}</td>
+						<td data-title="Date">{{po.date | date:'shortDate'}}</td>
+						<td data-title="Department">{{po.department}}</td>
+						<td data-title="Vendor" ng-bind-html="po.shortVendor"></td>
+						<td data-title="Ship To" ng-bind-html="po.shipToLocation.label"></td>
+						<td data-title="Teacher">{{po.teacher}}</td>
+						<td data-title="Div. Director">{{po.divDirector}}</td>
+						<td data-title="Remarks"><pop-text text="po.remarks" domid="'remark-'+po.poNumber" popt="'Remarks for PO#: '+po.poNumber"></pop-text></td>
+						<td data-title="Total">{{po.totalAmount | currency}}</td>
+						<td data-title=""><po-items items="po.items" po="po.poNumber"></po-items></td>
+						<td data-title=""><button class="btn btn-xs btn-danger" ng-click="requestDeletePO(po.poNumber)"><i class="fa fa-minus-circle"></i></button></td>
+						<td data-title=""><a href="api/index.php/pdf/make/?poid={{po.poNumber}}" target="_blank" class="btn btn-xs btn-success"><i class="fa fa-download"></i></a></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="12" class="text-center">
+							<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</div>
+</div>

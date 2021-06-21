@@ -1,0 +1,13 @@
+{
+    "name": "dalton/paperlesspo",
+    "description": "Online Purchase Order forms for the Dalton School",
+    "authors": [
+        {
+            "name": "TheRegge",
+            "email": "regis.zaleman@google.com"
+        }
+    ],
+    "require": {
+        "anahkiasen/underscore-php": "^2.0"
+    }
+}

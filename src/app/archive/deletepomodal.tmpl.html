@@ -1,0 +1,11 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="closeModal()" aria-hidden="true"><i class="fa fa-times"></i></button>
+	<h4>Delete Purchase Order</h4>
+</div>
+<div class="modal-body" ng-bind-html="modalMessage"></div>
+<div class="modal-footer">
+	<div class="pull-right">
+		<button class="btn btn-success" ng-click="closeModal()">Do not delete</button> &nbsp;
+		<button class="btn btn-danger" ng-click="deletePo(poNumber)">Yes, delete the P.O.</button>
+	</div>
+</div>

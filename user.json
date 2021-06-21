@@ -1,0 +1,88 @@
+{
+    "__ci_last_regenerate": 1517077065,
+    "source": "Active Directory and Whipple Hill",
+    "username": "regis",
+    "firstname": "Régis",
+    "lastname": "Zaleman",
+    "ssid": "ZALR",
+    "email": "Regis_Zaleman@dalton.org",
+    "fullname": "Regis Zaleman",
+    "description": "NLTL - French Dude",
+    "groups": [
+        "Archaeotype Admins",
+        "DnsAdmins",
+        "NLTL",
+        "Staff"
+    ],
+    "logged_in": true,
+    "whid": 1001302,
+    "prefix": "Mr.",
+    "photo": {
+        "fullsize": "https://dalton.myschoolapp.com/ftpimages/98/user/large_user_1001302.jpg",
+        "thumbnail": "https://dalton.myschoolapp.com/ftpimages/98/user/thumb_user_1001302.jpg"
+    },
+    "roles": [
+        "All School",
+        "Platform Manager",
+        "Page Manager",
+        "Faculty and Staff",
+        "Content Manager",
+        "Impersonate User",
+        "Web Services API Manager",
+        "Profile Manager",
+        "WordPress Manager",
+        "Community Group Owner",
+        "Community Group Manager",
+        "App Access",
+        "Grade Book Manager",
+        "House Roster Access"
+    ],
+    "addresses": [
+        {
+            "type": "Home",
+            "line1": "89 Murray Street, Apt. 8M",
+            "line2": "",
+            "line3": "",
+            "city": "New York",
+            "state": "NY",
+            "zip": "10007",
+            "country": "United States",
+            "primary": "Y",
+            "mailing": "Y"
+        },
+        {
+            "type": "Business/College",
+            "line1": "",
+            "line2": "",
+            "line3": "",
+            "city": "",
+            "state": "",
+            "zip": "",
+            "country": "United States",
+            "primary": "N",
+            "mailing": "N"
+        }
+    ],
+    "phones": [
+        {
+            "type": "Home",
+            "number": "(917) 691-5569"
+        },
+        {
+            "type": "Business/College",
+            "number": "(212) 423-5399"
+        },
+        {
+            "type": "Wireless",
+            "number": "(917) 691-5569"
+        }
+    ],
+    "relationships": [
+        {
+            "type": "Spouse/Partner",
+            "firstname": "Ilana",
+            "lastname": "Laurence",
+            "whid": 1001302
+        }
+    ]
+}

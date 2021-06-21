@@ -1,0 +1,17 @@
+__*
+._*
+.DS_Store
+*.min.css
+/**/DATAROOTcache/
+/**/logs/*.php
+/tmp/
+/vendor/
+bower_components
+composer.lock
+node_modules
+scripts.min.js
+src/api/ci_application/cache
+src/api/ci_application/libraries/tcpdf/*
+src/css/*
+src/fonts/*
+

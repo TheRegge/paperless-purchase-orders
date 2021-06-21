@@ -1,0 +1,22 @@
+<!-- Button trigger modal -->
+<style> .poptext a {text-decoration: none !important;}</style>
+<div class="poptext">
+	<a data-toggle="modal" data-target="#{{domid}}"><i class="fa fa-eye"></i> <span ng-bind-html="text"></span></a>
+
+	<!-- Modal -->
+	<div class="modal fade" id="{{domid}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">{{popt}}</h4>
+				</div>
+				<div class="modal-body" ng-bind-html="text">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

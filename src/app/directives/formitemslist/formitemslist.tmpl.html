@@ -1,0 +1,25 @@
+<table class="table table-condensed table-striped reveal">
+	<thead>
+		<tr>
+			<th class="text-center">Qty</th>
+			<th class="text-center">Budget No</th>
+			<th class="text-center">Cat. No</th>
+			<th class="text-center">Description</th>
+			<th class="text-center">Unit Price</th>
+			<th class="text-center">Item Total</th>
+			<th class="text-center"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in orderform.items" class="reveal">
+			<td class="text-center">{{item.quantity | number}}</td>
+			<td>{{item.budgetNumber}}</td>
+			<td class="text-center">{{item.catalogNo}}</td>
+			<td>{{item.description}}</td>
+			<td class="text-center">{{item.unitPrice | currency:"$"}}</td>
+			<td class="text-center">{{(item.unitPrice * item.quantity) | currency:"$"}}</td>
+			<td class="text-center"><i class="fa fa-close text-danger" style="cursor: pointer" ng-click="orderform.removeItem($index)">&nbsp;</i></td>
+		</tr>
+	</tbody>
+	<tfoot></tfoot>
+</table>

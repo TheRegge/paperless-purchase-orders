@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^webapps\.dalton\.org [NC]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^$ https://webapps.dalton.org/po/src [L]
+
+RewriteRule ^$ src [L]
+
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+Header always set Content-Security-Policy "upgrade-insecure-requests;"

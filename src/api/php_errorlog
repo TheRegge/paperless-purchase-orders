@@ -1,0 +1,1 @@
+[16-Dec-2020 16:30:02 UTC] PHP Warning:  "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? in /home/customer/www/zaleman.com/public_html/demos/demo_po/src/api/ci_application/libraries/tcpdf/tcpdf.php on line 17778

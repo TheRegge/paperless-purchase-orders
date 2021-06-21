@@ -1,0 +1,129 @@
+/* poform */
+.dlt-margined { margin: 6px; }
+.dlt-seal { margin-top: -10px; }
+
+.dlt-brand {
+	text-transform: uppercase;
+	color: @daltonblue;
+	margin-bottom: 0;
+
+	&.dlt-name {
+		font-family: 'Cinzel';
+		font-size: 1.8em;
+		line-height: .55em;
+	}
+
+	.dlt-small {
+		font-size: .5em;
+		text-transform: none;
+	}
+}
+
+.dlt-section {
+	margin-top: 1.5em;
+}
+
+.dlt-instructions {
+	font-size: .8em;
+	color: #666;
+	line-height: 1em;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.dlt-typewriter{ letter-spacing: 2px; font-family: "Special Elite"; font-size: 1.2em !important; padding-top: .3em !important;}
+
+
+.dlt-fieldbox {
+	background-color: @lightBackground;
+	border-bottom: solid 2px darken( @lightBackground, 20%);
+}
+
+.dlt-boxLabel {
+	background: lighten(@lightBackground, 4%);
+	padding: 1px;
+	border-bottom: solid 1px lighten(@lightBackground, 10%);
+}
+
+.dlt-box {
+	height: 5em;
+	padding: 3px;
+	background: @lightBackground;
+	border: 1px solid darken(@lightBackground, 10%);
+	textarea {
+		width: 100%;
+		height: 100%;
+		font-size: .9em;
+		line-height: 1.1em;
+	}
+
+	&.dlt-clear { background: transparent; border: 1px solid #ddd;}
+
+	&.dlt-box-taller { height: 7.4em; }
+}
+
+.dlt-loud {
+	text-transform: uppercase;
+	font-size: .84em;
+	line-height: 1.2em;
+}
+
+.dlt-color-hint { color: @daltonblue;}
+
+// Tables
+.table
+{
+	th {
+		text-align: center !important;
+		p { padding: 0 0 2px !important; }
+	}
+
+	td.noshow {
+		background: none !important;
+		border-top: none;
+	}
+
+	td.showlast { border-bottom: solid 2px #DDD;}
+}
+
+.table th, .table td {
+	padding: 3px;
+}
+
+.dlt-seamless-form {
+	input[type=text], textarea { 
+		background: transparent;
+		border: none;
+		padding:0;
+		margin: 0;
+		box-shadow: none;
+		width: 100%;
+		height:100%;
+	//	@include border-radius(0);
+
+		&:focus { background-color: @lightBackground; }
+	}
+}
+
+.dlt-hide {
+	color: transparent !important;
+
+	&:focus { color: black !important; };
+}
+
+.dlt-textline {
+	border-bottom: dashed 1px #ccc;
+
+	label { padding: 0; margin: 0; }
+	input { width: 100%; padding: 0!important; margin:0 !important; }
+}
+
+@media print {
+	
+	.visible-print  { display: inherit !important; }
+	.hidden-print   { display: none !important; }
+
+	body { 
+		margin-top: 0;
+	}
+}

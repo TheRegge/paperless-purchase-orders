@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="main col-md-12">
+		<h1 class="page-header">Demo Paperless P.O.</h1>
+		<p class="lead">Welcome to the Demo Paperless Purchase Order Web site.</p>
+		<div class="row">
+			<div ng-show="home.userIsAuthenticated" class="col-md-12">
+				<a class="btn btn-success" ui-sref="site.orderform">Create a P.O.</a>
+			</div>
+			<div ng-hide="home.userIsAuthenticated" class="col-md-12">
+				<a ui-sref="site.login"><strong>Please login to Access the Form.</strong></a>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,120 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12 col-md-8 col-md-offset-2">
+			<div class="page-header">
+				<h1>Purchase Orders<br><small>Online form</small></h1>
+				<p class="lead">Use this form to create, save and print a Purchase Order</p>
+			</div>
+		</div>
+	</div>
+	<button class="btn btn-xs btn-danger" ng-click="orderform.fakeData()">Click here to automatically generate test order items</button>
+	<form role="form" ng-submit="orderform.submit($event)">
+		<input type="hidden" ng-model="orderform.info.poNumber" id="poNumber">
+		<fieldset><hr>
+			<legend class="col-sm-12 col-md-8 col-md-offset-2"><i class="fa fa-info-circle text-info"></i>&nbsp;General Information</legend>
+			<div class="row">
+				<div class="form-group col-sm-12 col-md-8 col-md-offset-2 col-lg-4">
+					<label class="control-label">Vendor (3 lines max to fit on the pdf)</label>
+					<textarea style="height:75px" class="form-control" ng-model="orderform.info.vendor" uib-typeahead="vendor.vendor for vendor in orderform.vendors | filter:$viewValue" required id="vendor"></textarea>
+				</div>
+				<div class="form-group col-sm-12 col-md-8 col-md-offset-2 col-lg-4 col-lg-offset-0">
+					<label class="control-label">Ship to</label>
+					<select ng-model="orderform.info.shipTo" class="form-control" required>
+						<option value="" disabled selected>-- Choose --</option>
+						<option ng-repeat="shipTo in orderform.shipToLocations" value="{{shipTo.id}}" ng-selected="orderform.info.selectedShipTo == $index" ng-bind-html="shipTo.label" required></option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-sm-12 col-md-8 col-md-offset-2 col-lg-4">
+					<label class="control-label">Date</label>
+					<p class="input-group">
+						<input type="text" class="form-control" uib-datepicker-popup="{{orderform.format}}" ng-model="orderform.info.date" is-open="orderform.openeddt" min-date="orderform.minDate" max-date="" uib-datepicker-options="orderform.dateOptions" close-text="Close" ng-required />
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="orderform.open($event, 'dt')"><i class="fa fa-calendar"></i></button>
+						</span>
+					</p>
+				</div>
+				<div class="form-group col-sm-12 col-md-8 col-md-offset-2 col-lg-4 col-lg-offset-0">
+					<label class="control-label">Date Required</label>
+					<p class="input-group">
+						<input type="text" class="form-control" uib-datepicker-popup="{{orderform.format}}" ng-model="orderform.info.dateRequired" is-open="orderform.openeddtr" min-date="orderform.minDate" max-date="" uib-datepicker-options="orderform.dateOptions" close-text="Close" />
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="orderform.open($event, 'dtr')"><i class="fa fa-calendar"></i></button>
+						</span>
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-sm-12 col-md-8 col-md-offset-2">
+					<label class="control-label">Remarks</label>
+					<textarea class="form-control" ng-model="orderform.info.remarks"></textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-sm-12 col-md-8 col-md-offset-2 col-lg-4">
+					<label class="control-label">Teacher</label>
+					<input class="form-control" ng-model="orderform.info.teacher" required>
+				</div>
+				<div class="form-group col-sm-12 col-md-8 col-md-offset-2 col-lg-4 col-lg-offset-0">
+					<label class="control-label">Div. Director</label>
+					<input class="form-control" ng-model="orderform.info.divDirector" required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-sm-12 col-md-8 col-md-offset-2">
+					<label class="control-label">Department</label>
+					<select ng-model="orderform.selectedDepartment" required class="form-control">
+						<option value="" disabled selected>-- Choose --</option>
+						<option ng-repeat="department in orderform.departments" value="{{department.id}}">{{department.name}} </option>
+					</select>
+				</div>
+			</div>
+		</fieldset>
+
+		<fieldset><hr>
+			<legend class="col-sm-12 col-md-8 col-md-offset-2"><i class="fa fa-plus-circle text-info"></i>&nbsp;Add Items</legend>
+				<div class="row">
+					<div class="form-group col-sm-12 col-md-8 col-md-offset-2">
+
+						<!-- directive: add item -->
+						<formadditem></formadditem>
+					</div>
+				</div>
+		</fieldset>
+		<fieldset ng-show="orderform.items.length">
+			<legend class="col-sm-12 col-md-8 col-md-offset-2"><i class="fa fa-shopping-cart text-info"></i>&nbsp;Items list</legend>
+			<div class="col-sm-12 col-md-8 col-md-offset-2">
+
+				<!-- directive: formItemsList -->
+				<form-items-list>
+			</div>
+			<div class="col-sm-12 col-md-8 col-md-offset-2">
+				<div class="row">
+					<div class="form-group col-sm-5">
+						<label class="control-label">Shipping &amp; Handling Budget</label>
+						<input class="form-control" ng-model="orderform.shippingAndHandlingBudget">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">Shipping &amp; Handling</label>
+						<div class="input-group pull-right">
+							<div class="input-group-addon">$</div>
+							<input class="form-control" ng-model="orderform.shippingAndHandling">
+						</div>
+					</div>
+					<div class="col-sm-4 form-group">
+						<h3 class="text-right">Total: {{orderform.calculateTotalAmount() | currency:"$"}}</h3>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<div class="row">
+			<div class="form-group col-sm-12 col-md-8 col-md-offset-2">
+				<alert ng-repeat="alert in orderform.alerts" type="{{alert.type}}" close="orderform.closeAlert($index)" class="reveal"><p ng-bind-html="alert.msg"></p></alert>
+			</div>
+		</div>
+		<div class="form-group col-sm-12 col-md-8 col-md-offset-2">
+			<button type="submit" class="btn btn-primary btn-block btn-lg" ladda="orderform.formLoading" ng-disabled="orderform.getSubmitDisabled()"><i class="fa fa-print"></i> Save and Generate P.O. Form</button>
+		</div>
+	</form>
+</div>

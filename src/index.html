@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="paperlesspo">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Demo Paperless PO</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" href="css/styles.min.css">
+	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/cosmo/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<!--[if lt IE 10]>
+	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+	<div class="container-fluid">
+		<div ui-view="topbar"></div>
+	</div>
+	<div class="container">
+		<div ui-view="content"></div>
+	</div>
+	<toaster-container toaster-options="{'position-class': 'toast-top-full-width'}"></toaster-container>
+	<script src="scripts.min.1.js"></script>
+</body>
+</html>
